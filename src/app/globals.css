@@ -1,26 +1,60 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+
+  /* Custom pastel color palette */
+  --color-background: oklch(0.99 0.005 270);
+  --color-foreground: oklch(0.25 0.02 270);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.25 0.02 270);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.25 0.02 270);
+  --color-primary: oklch(0.65 0.15 270);
+  --color-primary-foreground: oklch(1 0 0);
+  --color-secondary: oklch(0.8 0.08 160);
+  --color-secondary-foreground: oklch(0.25 0.02 160);
+  --color-muted: oklch(0.96 0.005 270);
+  --color-muted-foreground: oklch(0.55 0.02 270);
+  --color-accent: oklch(0.75 0.15 80);
+  --color-accent-foreground: oklch(0.99 0.005 270);
+  --color-destructive: oklch(0.6 0.2 25);
+  --color-destructive-foreground: oklch(1 0 0);
+  --color-border: oklch(0.92 0.01 270);
+  --color-input: oklch(0.95 0.01 270);
+  --color-ring: oklch(0.65 0.15 270);
+
+  --color-chart-1: oklch(0.65 0.15 270);
+  --color-chart-2: oklch(0.8 0.08 160);
+  --color-chart-3: oklch(0.75 0.15 80);
+  --color-chart-4: oklch(0.7 0.12 200);
+  --color-chart-5: oklch(0.68 0.18 340);
+
+  --radius-sm: 1rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+
+  --color-sidebar: oklch(0.97 0.01 270);
+  --color-sidebar-foreground: oklch(0.35 0.02 270);
+  --color-sidebar-primary: oklch(0.75 0.15 80);
+  --color-sidebar-primary-foreground: oklch(0.99 0.005 270);
+  --color-sidebar-accent: oklch(0.93 0.02 270);
+  --color-sidebar-accent-foreground: oklch(0.75 0.15 80);
+  --color-sidebar-border: oklch(0.9 0.01 270);
+  --color-sidebar-ring: oklch(0.75 0.15 80);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
